@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja - Virtus Sklep Wędkarski</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <img src="image.png" alt="Virtus - Sklep Wędkarski">
+        <h1>Rejestracja</h1>
+
+        <!-- Formularz rejestracji -->
+        <form method="POST" action="register.php">
+            <div class="form-group">
+                <label for="username">Nazwa użytkownika</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Adres email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Potwierdź hasło</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <button type="submit">Zarejestruj się</button>
+        </form>
+
+        <!-- Sekcja błędów -->
+        <?php
+        session_start(); // Rozpocznij sesję
+        if (isset($_SESSION['error'])) {
+            echo '<div class="error-message">' . htmlspecialchars($_SESSION['error']) . '</div>';
+            unset($_SESSION['error']); // Usuń komunikat błędu po jego wyświetleniu
+        }
+        ?>
+
+        <div class="login-link">
+            Masz już konto? <a href="/demo/login/login.php">Zaloguj się</a>
+        </div>
+    </div>
+</body>
+</html>
+

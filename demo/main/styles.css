@@ -1,0 +1,37 @@
+/* Główna sekcja */
+.main-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.feature {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.feature a {
+    color: #ff6600;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.feature a:hover {
+    text-decoration: underline;
+}

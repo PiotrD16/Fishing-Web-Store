@@ -1,0 +1,78 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Połączenie z bazą danych
+$host = 'localhost'; 
+$db = 'webpage'; 
+$user = 'root'; 
+$pass = ''; 
+$dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
+
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Błąd połączenia z bazą danych: " . $e->getMessage());
+}
+
+// Pobranie danych użytkownika
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+$stmt->execute(['id' => $_SESSION['user_id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Pobranie zdjęć użytkownika
+$photos_stmt = $pdo->prepare("SELECT * FROM photos WHERE user_id = :user_id");
+$photos_stmt->execute(['user_id' => $_SESSION['user_id']]);
+$photos = $photos_stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil użytkownika</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Twój profil</h1>
+    <a href="logout.php">Wyloguj się</a>
+</header>
+
+<main>
+    <section class="profile-info">
+        <h2>Informacje o użytkowniku</h2>
+        <p><strong>Nazwa użytkownika:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+        <p><strong>Adres e-mail:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+        <p><strong>Punkty:</strong> <?php echo (int)$user['points']; ?></p>
+    </section>
+
+    <section class="user-photos">
+        <h2>Twoje zdjęcia</h2>
+        <?php if (empty($photos)): ?>
+            <p>Nie dodałeś jeszcze żadnych zdjęć.</p>
+        <?php else: ?>
+            <div class="photo-gallery">
+                <?php foreach ($photos as $photo): ?>
+                    <div class="photo">
+                        <img src="<?php echo htmlspecialchars($photo['photo_url']); ?>" alt="Zdjęcie użytkownika">
+                        <p>Punkty za zdjęcie: <?php echo (int)$photo['points_earned']; ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Virtus - Sklep Wędkarski</p>
+</footer>
+
+</body>
+</html>

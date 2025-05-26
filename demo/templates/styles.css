@@ -1,0 +1,114 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #151731;
+}
+
+/*pasek na samej gorze*/
+header {
+    background-color: #0b4063;
+    color: white;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+.login-btn,
+.logout-btn {
+    margin-left: auto; /* Przesuwa element na prawą stronę */
+}
+
+
+/* srodek */
+
+.bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    color: #fff
+}
+
+.right {
+    display: flex;
+    align-items: center; /* Wyrównanie zawartości w pionie */
+    gap: 10px; /* Odstęp między elementami w sekcji po prawej */
+}
+
+.logo {
+    height: 90px;
+}
+
+.center{
+    color: rgb(0, 0, 0);
+}
+
+.koszyk {
+    display: flex;
+    align-items: center;
+}
+
+.koszyk img {
+    margin-right: 5px; /* Odstęp między ikoną a tekstem */
+}
+
+.koszyk a {
+    text-decoration: none; /* Usuwa podkreślenie z linków */
+    color: #333; /* Kolor tekstu */
+    font-weight: bold; /* Grubszy tekst */
+}
+
+.koszyk a:hover {
+    color: #007bff; /* Kolor po najechaniu */
+}
+
+
+/* menu - dolny pasek */
+.menu {
+    background-color: #0b4063;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.jol {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center; 
+}
+
+.a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.a:hover {
+    text-decoration: underline;
+}

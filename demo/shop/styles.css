@@ -1,0 +1,66 @@
+/* Ogólny wygląd */
+
+main {
+    padding: 20px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-item h3 {
+    font-size: 1.5em;
+}
+
+.product-item p {
+    margin: 10px 0;
+}
+
+.product-item .old-price {
+    color: red;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.product-item .new-price {
+    color: green;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.product-item strong {
+    color: #28a745;
+}
+
+.quantity-field {
+    margin-top: 15px;  /* Zwiększony odstęp między "Zobacz więcej" a "Ilość" */
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;  /* Zwiększony odstęp między polem ilości a przyciskiem */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.out-of-stock {
+    color: red;
+    font-weight: bold;
+}

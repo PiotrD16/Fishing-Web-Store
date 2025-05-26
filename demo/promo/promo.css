@@ -1,0 +1,86 @@
+/* Ogólny wygląd */
+main {
+    padding: 20px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Stylizacja dla nazw produktów */
+.product-item h3 {
+    font-size: 1.5em;
+}
+
+/* Stylizacja dla opisu i cen */
+.product-item p {
+    margin: 10px 0;
+}
+
+/* Przekreślenie starej ceny */
+.product-item p del {
+    color: red; /* Przekreślenie starej ceny */
+    text-decoration: line-through;
+}
+
+/* Nowa cena */
+.product-item p strong {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: green; /* Kolor nowej ceny */
+}
+
+/* Stylizacja przycisku */
+button {
+    background-color: #28a745; /* Zielone tło */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #218838; /* Ciemniejszy zielony przy najechaniu */
+}
+
+/* Stylizacja dla produktów niedostępnych */
+.out-of-stock {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Link do strony produktu */
+.product-item a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.product-item a:hover {
+    text-decoration: underline;
+}
+
+/* Zwiększenie odstępu między "Zobacz więcej" a "Ilość" */
+.quantity-field {
+    margin-top: 20px;  /* Większy odstęp między linkiem "Zobacz więcej" a polem ilości */
+}
+
+/* Zwiększenie odstępu między ilością a przyciskiem "Dodaj do koszyka" */
+.product-item form {
+    margin-top: 20px;  /* Większy odstęp między polem ilości a przyciskiem */
+}
